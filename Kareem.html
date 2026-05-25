@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kareem Hassan | Portfolio</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Crimson+Text:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-primary: #2c1810;
+      --bg-secondary: rgba(44,24,16,0.7);
+      --text-primary: #f5ede0;
+      --text-secondary: #d4c4b0;
+      --text-muted: #b8a89a;
+      --accent: #d4a574;
+      --accent-secondary: #8b6f47;
+      --card-bg: rgba(121,84,72,0.25);
+      --border-color: rgba(212,165,116,0.2);
+      --gradient-1: #d4a574;
+      --gradient-2: #8b6f47;
+    }
+
+    html[data-theme="light"] {
+      --bg-primary: #faf9f8;
+      --bg-secondary: rgba(250,249,248,0.9);
+      --text-primary: #3e2723;
+      --text-secondary: #5d4037;
+      --text-muted: #795548;
+      --accent: #bf8b3f;
+      --accent-secondary: #8b6f47;
+      --card-bg: rgba(215,204,200,0.4);
+      --border-color: rgba(121,84,72,0.15);
+      --gradient-1: #d4a574;
+      --gradient-2: #8b6f47;
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family: 'Crimson Text', 'Cormorant Garamond', serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      overflow-x:hidden;
+      transition: background 0.3s ease, color 0.3s ease;
+      letter-spacing: 0.3px;
+    }
+
+    /* BACKGROUND */
+
+    .background{
+      position:fixed;
+      width:100%;
+      height:100vh;
+      top:0;
+      left:0;
+      z-index:-1;
+      background:
+      radial-gradient(circle at top left, rgba(212,165,116,0.08), transparent 25%),
+      radial-gradient(circle at bottom right, rgba(139,111,71,0.08), transparent 25%),
+      var(--bg-primary);
+      transition: background 0.3s ease;
+    }
+
+    .grid{
+      position:absolute;
+      width:100%;
+      height:100%;
+      background-image:
+      linear-gradient(rgba(212,165,116,0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(212,165,116,0.02) 1px, transparent 1px);
+      background-size:50px 50px;
+      mask-image: radial-gradient(circle at center, black 40%, transparent 90%);
+    }
+
+    /* NAVBAR */
+
+    nav{
+      width:100%;
+      position:fixed;
+      top:0;
+      z-index:100;
+      backdrop-filter:blur(10px);
+      background: var(--bg-secondary);
+      border-bottom:1px solid var(--border-color);
+      transition: background 0.3s ease, border-color 0.3s ease;
+    }
+
+    .nav-container{
+      max-width:1200px;
+      margin:auto;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:20px;
+    }
+
+    .logo{
+      font-size:1.8rem;
+      font-weight:700;
+      letter-spacing:2px;
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--accent);
+    }
+
+    .nav-content{
+      display:flex;
+      align-items:center;
+      gap:30px;
+    }
+
+    .nav-links{
+      display:flex;
+      gap:30px;
+    }
+
+    .nav-links a{
+      text-decoration:none;
+      color: var(--text-secondary);
+      transition:0.3s;
+      font-size:1.1rem;
+      font-family: 'Crimson Text', serif;
+    }
+
+    .nav-links a:hover{
+      color: var(--accent);
+    }
+
+    .theme-toggle {
+      background: transparent;
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
+      width: 45px;
+      height: 45px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      transition: all 0.3s ease;
+    }
+
+    .theme-toggle:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* HERO */
+
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:0 10%;
+    }
+
+    .hero-content{
+      max-width:900px;
+    }
+
+    .hero h1{
+      font-size:5rem;
+      line-height:1;
+      margin-bottom:20px;
+      background:linear-gradient(to right, var(--accent), var(--accent-secondary));
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      background-clip: text;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .hero h2{
+      color: var(--text-muted);
+      font-weight:400;
+      margin-bottom:30px;
+      font-size:1.5rem;
+      font-family: 'Crimson Text', serif;
+      font-style: italic;
+    }
+
+    .hero p{
+      color: var(--text-secondary);
+      line-height:1.9;
+      max-width:700px;
+      margin-bottom:40px;
+      font-size: 1.1rem;
+      font-family: 'Crimson Text', serif;
+    }
+
+    .hero-buttons{
+      display:flex;
+      gap:20px;
+    }
+
+    .btn{
+      padding:14px 30px;
+      border-radius:8px;
+      border:none;
+      cursor:pointer;
+      text-decoration:none;
+      transition:0.3s;
+      font-weight:600;
+      font-family: 'Crimson Text', serif;
+      font-size: 1.05rem;
+    }
+
+    .primary{
+      background: var(--accent);
+      color: var(--bg-primary);
+    }
+
+    .primary:hover{
+      transform:translateY(-3px);
+      background: var(--accent-secondary);
+    }
+
+    .secondary{
+      background:transparent;
+      border:1px solid var(--border-color);
+      color: var(--text-secondary);
+    }
+
+    .secondary:hover{
+      background: rgba(212,165,116,0.05);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* SECTION */
+
+    section{
+      padding:60px 10%;
+    }
+
+    .section-title{
+      font-size:3.5rem;
+      margin-bottom:50px;
+      position:relative;
+      display:inline-block;
+      color: var(--text-primary);
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    .section-title::after{
+      content:"";
+      width:60%;
+      height:3px;
+      background: linear-gradient(to right, var(--accent), var(--accent-secondary));
+      position:absolute;
+      bottom:-10px;
+      left:0;
+      border-radius:10px;
+    }
+
+    /* ABOUT */
+
+    .about{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:60px;
+      align-items:center;
+    }
+
+    .about-card{
+      background: var(--card-bg);
+      padding:40px;
+      border-radius:12px;
+      border:1px solid var(--border-color);
+      backdrop-filter:blur(10px);
+      transition: all 0.3s ease;
+    }
+
+    .about-card p{
+      line-height:2;
+      color: var(--text-secondary);
+      font-family: 'Crimson Text', serif;
+      font-size: 1.1rem;
+    }
+
+    .profile-placeholder{
+      width:100%;
+      height:400px;
+      border-radius:12px;
+      background:linear-gradient(135deg, rgba(212,165,116,0.2), rgba(139,111,71,0.2));
+      border:1px solid var(--border-color);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color: var(--text-secondary);
+      font-size:1.2rem;
+    }
+
+    /* PROJECTS */
+
+    .projects-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+      gap:30px;
+    }
+
+    .project-card{
+      background: var(--card-bg);
+      border-radius:12px;
+      overflow:hidden;
+      transition:all 0.4s ease;
+      border:1px solid var(--border-color);
+      cursor: pointer;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-card:hover{
+      transform:translateY(-10px);
+      border-color: var(--accent);
+      box-shadow:0 20px 50px rgba(212,165,116,0.08);
+    }
+
+    .project-image{
+      height:220px;
+      background:linear-gradient(135deg, rgba(212,165,116,0.2), rgba(139,111,71,0.2));
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color: var(--text-secondary);
+      transition: all 0.3s ease;
+      font-family: 'Crimson Text', serif;
+      font-size: 1.15rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-image::after{
+      content: '🔗';
+      position: absolute;
+      font-size: 3rem;
+      opacity: 0;
+      transition: all 0.3s ease;
+      transform: scale(0.8);
+    }
+
+    .project-card:hover .project-image{
+      background: linear-gradient(135deg, rgba(212,165,116,0.4), rgba(139,111,71,0.4));
+    }
+
+    .project-card:hover .project-image::after{
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .project-content{
+      padding:30px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-content h3{
+      margin-bottom:15px;
+      font-size:1.6rem;
+      color: var(--text-primary);
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+    }
+
+    .project-content p{
+      color: var(--text-secondary);
+      line-height:1.8;
+      margin-bottom:20px;
+      font-family: 'Crimson Text', serif;
+      font-size: 1rem;
+    }
+
+    .tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+
+    .tag{
+      background: rgba(212,165,116,0.1);
+      color: var(--accent);
+      padding:8px 14px;
+      border-radius:6px;
+      font-size:0.85rem;
+      border: 1px solid var(--border-color);
+      font-family: 'Crimson Text', serif;
+    }
+
+    .project-links{
+      display: flex;
+      gap: 12px;
+      margin-top: auto;
+      margin-top: 20px;
+    }
+
+    .project-link-btn{
+      flex: 1;
+      padding: 10px 16px;
+      border-radius: 6px;
+      border: 1px solid var(--border-color);
+      background: rgba(212,165,116,0.1);
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-family: 'Crimson Text', serif;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .project-link-btn:hover{
+      background: var(--accent);
+      color: var(--bg-primary);
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .project-link-btn.github:hover{
+      background: #333;
+      color: #fff;
+      border-color: #555;
+    }
+
+    .project-link-btn.pdf:hover{
+      background: #d32f2f;
+      color: #fff;
+      border-color: #a02020;
+    }
+
+    /* SKILLS */
+
+    .skills{
+      display:flex;
+      flex-wrap:wrap;
+      gap:20px;
+    }
+
+    .skill-card{
+      background: var(--card-bg);
+      padding:20px 30px;
+      border-radius:8px;
+      border:1px solid var(--border-color);
+      transition:all 0.3s ease;
+      color: var(--text-primary);
+      font-family: 'Crimson Text', serif;
+      font-size: 1.1rem;
+    }
+
+    .skill-card:hover{
+      transform:translateY(-5px);
+      border-color: var(--accent);
+    }
+
+    /* CONTACT */
+
+    .contact-box{
+      max-width:700px;
+      background: var(--card-bg);
+      padding:50px;
+      border-radius:12px;
+      border:1px solid var(--border-color);
+      transition: all 0.3s ease;
+    }
+
+    .contact-box p{
+      color: var(--text-secondary);
+      line-height:2;
+      margin-bottom:30px;
+      font-family: 'Crimson Text', serif;
+      font-size: 1.1rem;
+    }
+
+    /* EDUCATION & EXPERIENCE */
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 30px;
+      margin-bottom: 40px;
+      align-items: start;
+    }
+
+    .timeline-date {
+      color: var(--accent);
+      font-weight: 600;
+      font-family: 'Crimson Text', serif;
+      font-size: 1rem;
+    }
+
+    .timeline-content {
+      background: var(--card-bg);
+      padding: 25px;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+      transition: all 0.3s ease;
+    }
+
+    .timeline-content:hover {
+      border-color: var(--accent);
+    }
+
+    .timeline-content h3 {
+      color: var(--text-primary);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      margin-bottom: 8px;
+    }
+
+    .timeline-content .role {
+      color: var(--text-muted);
+      font-family: 'Crimson Text', serif;
+      font-style: italic;
+      margin-bottom: 12px;
+    }
+
+    .timeline-content p {
+      color: var(--text-secondary);
+      line-height: 1.7;
+      font-family: 'Crimson Text', serif;
+      font-size: 0.95rem;
+      margin-bottom: 8px;
+    }
+
+    .bullet-list {
+      margin-left: 20px;
+      margin-top: 12px;
+    }
+
+    .bullet-list li {
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+      font-family: 'Crimson Text', serif;
+      font-size: 0.95rem;
+    }
+
+    /* BACK TO TOP */
+
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background: var(--accent);
+      color: var(--bg-primary);
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1.5rem;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 99;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(212, 165, 116, 0.2);
+    }
+
+    .back-to-top:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 16px rgba(212, 165, 116, 0.3);
+    }
+
+    .back-to-top.show {
+      display: flex;
+    }
+
+    footer{
+      padding:40px;
+      text-align:center;
+      color: var(--text-secondary);
+      transition: color 0.3s ease;
+      font-family: 'Crimson Text', serif;
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width:900px){
+
+      .hero h1{
+        font-size:3rem;
+      }
+
+      .about{
+        grid-template-columns:1fr;
+      }
+
+      .nav-links{
+        display:none;
+      }
+
+      .nav-content{
+        gap:15px;
+      }
+
+      .timeline-item {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .timeline-date {
+        font-size: 0.9rem;
+      }
+
+      section {
+        padding: 40px 5%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="background">
+    <div class="grid"></div>
+  </div>
+
+  <!-- NAVBAR -->
+
+  <nav>
+    <div class="nav-container">
+      <div class="logo">KH.</div>
+
+      <div class="nav-content">
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#education">Education</a>
+          <a href="#experience">Experience</a>
+          <a href="#skills">Skills</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
+          🌙
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="hero-content">
+
+      <h1>Kareem Hassan</h1>
+
+      <h2>
+        Computer Engineer • AI/ML • Embedded Systems • Autonomous Technologies
+      </h2>
+
+      <p>
+        I build intelligent systems combining machine learning, computer vision,
+        and embedded hardware to solve real-world engineering problems.
+        Currently focused on AI systems, autonomous navigation, and real-time inference.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#projects" class="btn primary">View Projects</a>
+        <a href="pdfs\Kareem_CV__pro___wo_exp_ (4).pdf" download="My_Resume.pdf" class="btn secondary">Resume</a>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ABOUT -->
+
+  <section id="about">
+
+    <h2 class="section-title">About Me</h2>
+
+    <div class="about">
+
+      <div class="about-card">
+
+        <p>
+          I'm a Computer Engineering student at Purdue University, graduated spring 2026 with interests
+          in ML/AI, computer vision, embedded systems, and intelligent
+          autonomous technologies.
+        </p>
+
+        <br>
+
+        <p>
+          My work includes real-time crash detection systems using ESP32 hardware,
+          autonomous navigation pipelines for extreme environments,
+          and generative AI architectures such as VAE-GANs.
+        </p>
+
+        <br>
+
+        <p>
+          I enjoy bridging the gap between software intelligence and real-world hardware constraints.
+        </p>
+
+      </div>
+
+      <div class="profile-placeholder">
+        <img src="C:\Users\LENOVO\OneDrive\Pictures\ME\Prof-Headshots\hassa112@purdue.edu-88a70198\hassa112@purdue.edu-0.jpg" width="350" height="350" border-radius="50%" alt="A descriptive text of the photo">
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- PROJECTS -->
+
+  <section id="projects">
+
+    <h2 class="section-title">Featured Projects</h2>
+
+    <div class="projects-grid">
+
+      <!-- PROJECT 1 -->
+
+      <div class="project-card">
+
+        <div class="project-image">
+          <img src="images/helmet.jpg" width="100%" height="100%" alt="Smart Helmet">
+        </div>
+
+        <div class="project-content">
+
+          <h3>Smart Cycle Helmet</h3>
+
+          <p>
+            Real-time crash and fall detection system using ESP32, IMU sensors,
+            BLE communication, and machine learning inference.
+          </p>
+
+          <div class="tags">
+            <div class="tag">ESP32</div>
+            <div class="tag">Machine Learning</div>
+            <div class="tag">BLE</div>
+            <div class="tag">Python</div>
+          </div>
+
+          <div class="project-links">
+            <a href="https://github.com/aathira-hegde/Smart_Cycle_Helmet.git" target="_blank" class="project-link-btn github">GitHub</a>
+            <a href="pdfs/Smart Cycle Helmet - An Embedded System for Enhanced Rider Safety_FinalReport.pdf" target="_blank" class="project-link-btn pdf">PDF</a>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- PROJECT 2 -->
+
+      <div class="project-card">
+
+        <div class="project-image">
+          <img src="images/Gemini_Generated_Image_.png" width="100%" height="100%" alt="Autonomous Navigation">
+        </div>
+
+        <div class="project-content">
+
+          <h3>Autonomous Navigation</h3>
+
+          <p>
+            Vision-based navigation system robust to adverse environments
+            including low visibility, dynamic obstacles, and harsh weather conditions.
+          </p>
+
+          <div class="tags">
+            <div class="tag">Computer Vision</div>
+            <div class="tag">Sensor Fusion</div>
+            <div class="tag">AI</div>
+            <div class="tag">Python</div>
+          </div>
+
+          <div class="project-links">
+            <a href="pdfs/FINAL REPORT.pdf" target="_blank" class="project-link-btn pdf" style="flex: 1;">View PDF</a>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- PROJECT 3 -->
+
+      <div class="project-card">
+
+        <div class="project-image">
+          <img src="images/Gan.png" width="100%" height="100%" alt="VAE-GAN Face Synthesis">
+        </div>
+
+        <div class="project-content">
+
+          <h3>VAE-GAN Face Synthesis</h3>
+
+          <p>
+            Hybrid VAE-GAN architecture using a U-Net discriminator
+            for realistic face generation and feature reconstruction.
+          </p>
+
+          <div class="tags">
+            <div class="tag">GANs</div>
+            <div class="tag">Deep Learning</div>
+            <div class="tag">PyTorch</div>
+            <div class="tag">AI</div>
+          </div>
+
+          <div class="project-links">
+            <a href="https://github.com/KareeHassa/Final-Project-AI.git" target="_blank" class="project-link-btn github">GitHub</a>
+            <a href="pdfs/U_Net_Discriminator_Report.pdf" target="_blank" class="project-link-btn pdf">PDF</a>
+          </div>
+
+        </div>
+
+      </div>
+
+    
+
+          <!-- PROJECT 4 -->
+
+      <div class="project-card">
+
+        <div class="project-image">
+          <img src="images/RLHF.jpg" width="100%" height="100%" alt="Reinforcement Learning with Human Feedback">
+        </div>
+
+        <div class="project-content">
+
+          <h3>Reinforcement Learning with Human Feedback</h3>
+
+          <p>
+            Implemented a reinforcement learning pipeline integrating
+            human feedback signals to improve model alignment and
+            optimize behavioral outputs through iterative policy updates.
+          </p>
+
+          <div class="tags">
+            <div class="tag">RLHF</div>
+            <div class="tag">Machine Learning</div>
+            <div class="tag">Python</div>
+            <div class="tag">Reward Modeling</div>
+          </div>
+
+          <div class="project-links">
+            <a href="pdfs/ECE595_Proposal (2).pdf" target="_blank" class="project-link-btn pdf" style="flex: 1;">View PDF</a>
+          </div>
+
+        </div>
+
+      </div>
+
+    
+          <!-- PROJECT 5 -->
+
+      <div class="project-card">
+
+        <div class="project-image">
+          <img src="images/comp_graph.png" width="100%" height="100%" alt="Real-Time Vision System for Autonomous Robots">
+        </div>
+
+        <div class="project-content">
+
+          <h3>Real-Time Vision System for Autonomous Robots</h3>
+
+          <p>
+            Developed a real-time monocular vision system using MiDaS depth estimation,
+            OpenGL visualization, and DBSCAN clustering to reconstruct pseudo-3D environments
+            and detect obstacles using a single RGB camera.
+          </p>
+
+          <div class="tags">
+            <div class="tag">3D Vision</div>
+            <div class="tag">Computer Vision</div>
+            <div class="tag">OpenGL</div>
+            <div class="tag">OpenCV</div>
+          </div>
+
+          <div class="project-links">
+            <a href="https://github.com/Murad777-phy/Graphics-Project.git" target="_blank" class="project-link-btn github">GitHub</a>
+            <a href="pdfs/Cs_334_finalRep.pdf" target="_blank" class="project-link-btn pdf">PDF</a>
+          </div>
+
+        </div>
+
+      </div>  
+    </div>    
+  </section>
+
+  <!-- EDUCATION -->
+
+  <section id="education">
+
+    <h2 class="section-title">Education</h2>
+
+    <div class="timeline-item">
+      <div class="timeline-date">2025 – 2026</div>
+      <div class="timeline-content">
+        <h3>Purdue University</h3>
+        <div class="role">B.S. in Computer Engineering (Senior) | GPA: 3.89</div>
+        <p><strong>Concentrations:</strong> Artificial Intelligence & Machine Learning, Computer Systems</p>
+        <p><strong>Location:</strong> United States</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-date">2021 – 2025</div>
+      <div class="timeline-content">
+        <h3>Egypt University of Informatics</h3>
+        <div class="role">B.S. in Computer Engineering | GPA: 3.54</div>
+        <p><strong>Location:</strong> Egypt</p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- EXPERIENCE -->
+
+  <section id="experience">
+
+    <h2 class="section-title">Experience</h2>
+
+    <div class="timeline-item">
+      <div class="timeline-date">2025 – 2026</div>
+      <div class="timeline-content">
+        <h3>Chick-fil-A</h3>
+        <div class="role">Team Member | West Lafayette, IN</div>
+        <ul class="bullet-list">
+          <li>Delivered high-volume customer service in a fast-paced environment while maintaining accuracy and efficiency.</li>
+          <li>Collaborated with team members to optimize workflow and reduce service time during peak hours.</li>
+          <li>Developed strong leadership, communication, teamwork, and problem-solving skills in real-time operational settings.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-date">2024</div>
+      <div class="timeline-content">
+        <h3>Orascom Construction</h3>
+        <div class="role">Intern – Engineering & IT Department | Egypt</div>
+        <ul class="bullet-list">
+          <li>Assisted IT team with system maintenance, troubleshooting, and network reliability.</li>
+          <li>Gained exposure to large-scale construction operations and IT integration in field environments.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-date">2018 – 2023</div>
+      <div class="timeline-content">
+        <h3>Teaching Assistant</h3>
+        <div class="role">Mathematics & Chemistry | Pre-College & College Level | Egypt</div>
+        <ul class="bullet-list">
+          <li>Tutored students in mathematics and chemistry, improving average test performance by 15%.</li>
+          <li>Designed problem sets and mock exams to reinforce conceptual understanding.</li>
+          <li>Built leadership and communication skills through one-on-one and group mentoring.</li>
+        </ul>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- SKILLS -->
+
+  <section id="skills">
+
+    <h2 class="section-title">Technical Skills</h2>
+
+    <div class="skills">
+
+      <div class="skill-card">Python</div>
+      <div class="skill-card">C / C++</div>
+      <div class="skill-card">Machine Learning</div>
+      <div class="skill-card">Computer Vision</div>
+      <div class="skill-card">Embedded Systems</div>
+      <div class="skill-card">ESP32</div>
+      <div class="skill-card">Sensor Fusion</div>
+      <div class="skill-card">Deep Learning</div>
+      <div class="skill-card">SQL</div>
+      <div class="skill-card">Git</div>
+      <div class="skill-card">Jupyter</div>
+      <div class="skill-card">Real-Time Systems</div>
+
+    </div>
+
+  </section>
+
+  <!-- CONTACT -->
+
+  <section id="contact">
+
+    <h2 class="section-title">Contact</h2>
+
+    <div class="contact-box">
+
+      <p>
+        Interested in collaborating, research opportunities,
+        AI systems, or embedded engineering projects?
+        Feel free to reach out.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="mailto:hassa112@purdue.edu" class="btn primary">
+          Email Me
+        </a>
+
+        <a href="https://github.com/KareeHassa" class="btn secondary">
+          GitHub
+        </a>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+    © 2026 Kareem Hassan.
+  </footer>
+
+  <!-- BACK TO TOP BUTTON -->
+
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    ↑
+  </button>
+
+  <!-- JAVASCRIPT -->
+
+  <script>
+
+    // BACK TO TOP BUTTON
+
+    const backToTopButton = document.getElementById('backToTop');
+
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        backToTopButton.classList.add('show');
+      } else {
+        backToTopButton.classList.remove('show');
+      }
+    });
+
+    backToTopButton.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // THEME TOGGLE
+
+    const themeToggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+
+    // Check for saved theme preference or default to dark mode
+    const currentTheme = localStorage.getItem('theme') || (prefersDark.matches ? 'dark' : 'light');
+
+    // Set initial theme
+    if (currentTheme === 'light') {
+      html.setAttribute('data-theme', 'light');
+      themeToggle.textContent = '☀️';
+    } else {
+      html.removeAttribute('data-theme');
+      themeToggle.textContent = '🌙';
+    }
+
+    // Toggle theme on button click
+    themeToggle.addEventListener('click', () => {
+      const theme = html.getAttribute('data-theme');
+      
+      if (theme === 'light') {
+        html.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'dark');
+        themeToggle.textContent = '🌙';
+      } else {
+        html.setAttribute('data-theme', 'light');
+        localStorage.setItem('theme', 'light');
+        themeToggle.textContent = '☀️';
+      }
+    });
+
+    // SIMPLE SCROLL ANIMATION
+
+    const cards = document.querySelectorAll(
+      '.project-card, .about-card, .skill-card, .contact-box, .timeline-content'
+    );
+
+    const observer = new IntersectionObserver(entries => {
+
+      entries.forEach(entry => {
+
+        if(entry.isIntersecting){
+
+          entry.target.style.opacity = 1;
+          entry.target.style.transform = "translateY(0px)";
+        }
+
+      });
+
+    });
+
+    cards.forEach(card => {
+
+      card.style.opacity = 0;
+      card.style.transform = "translateY(40px)";
+      card.style.transition = "all 0.8s ease";
+
+      observer.observe(card);
+
+    });
+
+  </script>
+
+</body>
+</html>
