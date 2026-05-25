@@ -200,6 +200,27 @@
       font-family: 'Crimson Text', serif;
     }
 
+    #typewriter-text {
+      color: var(--text-muted);
+      font-weight: 400;
+      margin-bottom: 30px;
+      font-size: 1.5rem;
+      font-family: 'Crimson Text', serif;
+      font-style: italic;
+      min-height: 2rem;
+    }
+
+    #typewriter-text::after {
+      content: '|';
+      animation: blink 0.7s infinite;
+      margin-left: 2px;
+    }
+
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      51%, 100% { opacity: 0; }
+    }
+
     .hero-buttons{
       display:flex;
       gap:20px;
@@ -664,14 +685,11 @@
 
       <h1>Kareem Hassan</h1>
 
-      <h2>
-        Computer Engineer • AI/ML • Embedded Systems • Autonomous Technologies
-      </h2>
+      <h2 id="typewriter-text"></h2>
 
       <p>
-        I build intelligent systems combining machine learning, computer vision,
-        and embedded hardware to solve real-world engineering problems.
-        Currently focused on AI systems, autonomous navigation, and real-time inference.
+        I design and build systems at the intersection of machine learning, computer vision, and embedded hardware.
+        My focus is on creating robust, real-time solutions that work reliably in complex, unpredictable environments.
       </p>
 
       <div class="hero-buttons">
@@ -694,24 +712,26 @@
       <div class="about-card">
 
         <p>
-          I'm a Computer Engineering student at Purdue University, graduated spring 2026 with interests
-          in ML/AI, computer vision, embedded systems, and intelligent
-          autonomous technologies.
+          I am a Computer Engineering graduate from Purdue University (Spring 2026)
+          specializing in machine learning, computer vision, and embedded systems. 
+          I focus on building software that handles the unpredictability of the 
+          physical world, whether that means processing noisy sensor data in real 
+          time or making vision models reliable in bad weather.
         </p>
 
         <br>
 
         <p>
-          My work includes real-time crash detection systems using ESP32 hardware,
-          autonomous navigation pipelines for extreme environments,
-          and generative AI architectures such as VAE-GANs.
+          My background spans dual degrees from Purdue and Egypt University of Informatics,
+          giving me a broad perspective on engineering challenges. When I’m 
+          not writing code or training models, I stay grounded through boxing, 
+          football, and keeping active. I value humility, clear communication, and 
+          working with sharp, multidisciplinary teams to solve hard problems.
         </p>
 
         <br>
 
-        <p>
-          I enjoy bridging the gap between software intelligence and real-world hardware constraints.
-        </p>
+  
 
       </div>
 
@@ -1042,6 +1062,26 @@
   <!-- JAVASCRIPT -->
 
   <script>
+
+    // TYPEWRITER ANIMATION
+
+    const typewriterText = 'Computer Engineer • AI/ML • Computer Vision • Embedded Systems • Autonomous Technologies';
+    const typewriterElement = document.getElementById('typewriter-text');
+    let index = 0;
+    const typingSpeed = 30; // ms per character
+
+    function typewriter() {
+      if (index < typewriterText.length) {
+        typewriterElement.textContent += typewriterText.charAt(index);
+        index++;
+        setTimeout(typewriter, typingSpeed);
+      }
+    }
+
+    // Start typing when the page loads
+    window.addEventListener('load', () => {
+      typewriter();
+    });
 
     // BACK TO TOP BUTTON
 
